@@ -1,0 +1,659 @@
+/* --- V.H. International School Website Theme --- */
+
+/* === 1. Global Styles & Theme Variables === */
+:root {
+    --primary-color: #2c3e50; /* Deep Navy Blue */
+    --accent-color: #f39c12; /* Golden Orange */
+    --light-bg-color: #f4f6f9; /* Light Gray Background */
+    --text-dark: #333;
+    --text-light: #ecf0f1;
+    --font-headings: 'Montserrat', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+}
+
+/* === 2. Navbar Styling === */
+.navbar {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-links li a {
+    color: var(--primary-color);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: var(--accent-color);
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar .nav-links li a:hover::after {
+    width: 60%;
+}
+
+.navbar .menu-toggle {
+    display: none; /* Default state for desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    background: none;
+    border: none;
+}
+
+/* === 3. Hero Section Styling === */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image/img8.jpg) no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #e67e22;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* === 4. About & General Section Styling === */
+.about, .gallery, .courses-section, .feedback-section {
+    padding: 5rem 0;
+}
+
+.about, .courses-section {
+    background: var(--light-bg-color);
+}
+
+.about h2, .gallery h2, .courses-section h2, .feedback-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    position: relative;
+    font-weight: bold;
+}
+
+.about h2::after, .gallery h2::after, .courses-section h2::after, .feedback-section h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* === 5. Gallery Styling === */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::before {
+    content: 'View Image';
+    font-family: var(--font-headings);
+    color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(243, 156, 18, 0.7);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* === 6. Footer Styling === */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 4rem 20px 2rem;
+}
+
+.footer-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.footer-logo h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+    font-style: italic;
+    color: #bdc3c7;
+}
+
+.footer-links, .footer-contact, .footer-social {
+    flex: 1 1 220px;
+}
+
+.footer h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 3px;
+    width: 40px;
+    background-color: var(--accent-color);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.footer-contact p,
+.footer-social a {
+    color: #bdc3c7;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.fot p {
+    color: #ff2727;
+    text-align: right;
+    margin-right: 108px;
+    font-weight: 700;
+    font-size: 29px;
+}
+
+/* === 7. Courses Section Styling === */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.course-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    padding: 2rem;
+    text-align: center;
+    border-top: 4px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.course-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.course-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    min-height: 50px;
+}
+
+.course-details {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+    color: #444;
+}
+
+.course-details li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.course-details li:last-child {
+    border-bottom: none;
+}
+
+.course-details strong {
+    color: var(--primary-color);
+}
+
+/* === 8. Feedback Form Section Styling === */
+.feedback-section {
+    padding: 5rem 1rem;
+    background: #f9f9f9;
+}
+
+.feedback-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 3rem;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 320px;
+}
+
+.contact-info h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.info-item span {
+    font-size: 1.7rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+    background: #fff;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .btn {
+    padding: 12px 28px;
+    background: var(--accent-color);
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.contact-form .btn:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === 9. Responsive Design (Mobile & Tablet) === */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive Navbar adjustments */
+    .navbar .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        display: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .navbar .nav-links li {
+        text-align: center;
+    }
+    .navbar .nav-links li a {
+        padding: 1rem;
+        display: block;
+    }
+    .navbar .menu-toggle {
+        display: block;
+    }
+    .navbar.active .nav-links {
+        display: flex;
+    }
+    
+    /* Global container */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: auto;
+        padding: 4rem 1rem;
+    }
+    .hero-content {
+        padding-top: 2rem;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* About Section */
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .about-image, .about-text {
+        width: 100%;
+    }
+    .about h2, .gallery h2, .courses-section h2, .feedback-section h2 {
+        font-size: 2rem;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Courses Grid */
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    .course-card {
+        padding: 1.5rem;
+    }
+    .course-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Feedback Section Fix */
+    .feedback-container {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem; /* Adjusted gap for better spacing */
+    }
+
+    /* Footer */
+    .footer-main {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-logo h2 {
+        font-size: 1.3rem;
+    }
+    .footer-logo p {
+        font-size: 0.95rem;
+    }
+    .footer-contact p,
+    .footer-social a {
+        font-size: 0.95rem;
+    }
+    .footer-bottom {
+        font-size: 0.85rem;
+    }
+    .fot p {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+    .course-details li {
+        font-size: 0.9rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1rem;
+    }
+    .footer h3 {
+        font-size: 1rem;
+    }
+    .footer-links ul li a {
+        font-size: 0.95rem;
+    }
+}
